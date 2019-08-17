@@ -1,0 +1,72 @@
+{
+  "notes": [
+    {
+      "title": "Work",
+      "create_date": "2019-08-17 15:24",
+      "update_date": "2019-08-17 20:17",
+      "items": [
+        {
+          "content": "check mails",
+          "checked": false
+        },
+        {
+          "content": "review applicant",
+          "checked": false
+        },
+        {
+          "content": "order stuff",
+          "checked": true
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "Home",
+      "create_date": "2019-08-17 15:25",
+      "update_date": "2019-08-17 15:27",
+      "items": [
+        {
+          "content": "wash dishes",
+          "checked": true
+        },
+        {
+          "content": "make dinner",
+          "checked": false
+        },
+        {
+          "content": "do laundry",
+          "checked": true
+        },
+        {
+          "content": "walk the dog",
+          "checked": false
+        }
+      ],
+      "id": 2
+    },
+    {
+      "title": "Bills",
+      "create_date": "2019-08-17 15:26",
+      "update_date": "2019-08-17 20:15",
+      "items": [
+        {
+          "content": "water",
+          "checked": false
+        },
+        {
+          "content": "gas",
+          "checked": true
+        },
+        {
+          "content": "electricity",
+          "checked": false
+        },
+        {
+          "content": "property tax",
+          "checked": true
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
