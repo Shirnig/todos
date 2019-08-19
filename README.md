@@ -1,7 +1,7 @@
 # Todos
 
 A notes platform written in React.js and Typescript<br/>
-More technilogies used: Mobx, JSON.server, Bootstrap, Styled Components
+More technilogies used: JSON.server, Mobx, Axios, Lodash, Moment.js, React-Bootstrap, Styled Components
 
 ## Installation
 
