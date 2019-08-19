@@ -11,35 +11,37 @@ import {Item,Note} from "../iterfaces/notes.interface";
 export default function NoteCard({note, updateChecked, noteId, removeNote} : {note:Note,updateChecked:any,noteId:Number,removeNote:any}){
     return(
         <CardContainer className="col-xs-10 col-sm-6 col-lg-3 col-xl-3">
-        <Card>
-            <Card.Header className="header" onClick={()=>removeNote(noteId)}>
-                <span className="title">{note.title}</span>
-                <i className="fa fa-times removeIcon" title="Remove Note" aria-hidden="true"/>
-            </Card.Header>
-            <ListGroup variant="flush">
-                {note.items.map((item: Item, idx: number)=>{
+            <Card>
 
-                    return (<Fragment key={idx}>
+                <Card.Header className="header" onClick={()=>removeNote(noteId)}>
+                    <span className="title">{note.title}</span>
+                    <i className="fa fa-times removeIcon" title="Remove Note" aria-hidden="true"/>
+                </Card.Header>
 
-                            <ListGroup.Item className={item.checked ? 'list checked' : 'list'}>
-                                <span>{item.content}</span>
+                <ListGroup variant="flush">
+                    {note.items.map((item: Item, idx: number)=>{
+                        return (<Fragment key={idx}>
 
-                                <InputGroup className="checkboxWrapper">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Checkbox checked={item.checked} onChange={({target})=>updateChecked(note.id,idx,target.checked)}/>
-                                    </InputGroup.Prepend>
-                                </InputGroup>
-                            </ListGroup.Item>
+                                <ListGroup.Item className={item.checked ? 'list checked' : 'list'}>
+                                    <span>{item.content}</span>
 
-                        </Fragment>
+                                    <InputGroup className="checkboxWrapper">
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Checkbox checked={item.checked} onChange={({target})=>updateChecked(note.id,idx,target.checked)}/>
+                                        </InputGroup.Prepend>
+                                    </InputGroup>
+                                </ListGroup.Item>
 
-                    )
-                })}
-                <ListGroup.Item>
-                    <span style={{fontSize:"15px"}}>Updated to {note.update_date}</span>
-                </ListGroup.Item>
-            </ListGroup>
-        </Card>
+                            </Fragment>
+                        )
+                    })}
+
+                    <ListGroup.Item>
+                        <span style={{fontSize:"15px"}}>Updated to {note.update_date}</span>
+                    </ListGroup.Item>
+
+                </ListGroup>
+            </Card>
         </CardContainer>
     )
 }

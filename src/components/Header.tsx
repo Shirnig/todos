@@ -1,14 +1,12 @@
 import React from "react";
-import {inject, observer} from "mobx-react";
+import {inject} from "mobx-react";
 // @ts-ignore
 import styled from "styled-components";
 import AddNote from "./AddNote";
 import {HeaderState} from "../iterfaces/notes.interface";
 
 
-
 @inject('NotesStore')
-@observer
 class Header extends React.Component<any, HeaderState>{
 
     constructor(props: any) {
@@ -19,7 +17,7 @@ class Header extends React.Component<any, HeaderState>{
     }
 
     checkNotesCount(){
-        if(this.props.NotesStore.notes.length === 10) {
+        if(this.props.NotesStore.notesCount === 10) {
             alert("Only 10 notes allowed, please remove one before inserting new")
         }else {
             this.setState({displayAddModal: true})

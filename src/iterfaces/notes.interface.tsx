@@ -1,7 +1,3 @@
-export interface Notes {
-
-}
-
 export interface HeaderState {
     displayAddModal: boolean
 }

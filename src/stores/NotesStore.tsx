@@ -1,4 +1,4 @@
-import {observable, action} from "mobx";
+import {observable, action, computed} from "mobx";
 import axios from 'axios';
 import {newNote, Note} from "../iterfaces/notes.interface";
 const _ = require('lodash');
@@ -30,6 +30,29 @@ class NotesStore {
        });
     };
 
+
+    @action removeNote = (noteId: number) => {
+        axios.delete(`http://localhost:3004/notes/${noteId}`,{
+            headers: {
+                'Content-Type': 'application/json'
+            }}).then(()=>{
+            this.fetchNotes()
+        });
+    };
+
+
+    @action fetchNotes(){
+        return axios.get('http://localhost:3004/notes').then(({data})=>{
+            this.notes = data;
+        })
+    }
+
+
+    @computed get notesCount() {
+        return this.notes.length;
+    }
+
+
    handleItems(i: number, itemId: number, value: Boolean) {
        this.notes[i].items[itemId].checked = value;
        return this.notes[i].items;
@@ -39,23 +62,6 @@ class NotesStore {
        this.notes[i].update_date = moment().format('YYYY-MM-DD HH:mm');
        return this.notes[i].update_date;
    }
-
-   @action removeNote = (noteId: number) => {
-       axios.delete(`http://localhost:3004/notes/${noteId}`,{
-           headers: {
-               'Content-Type': 'application/json'
-           }}).then(()=>{
-           this.fetchNotes()
-       });
-   };
-
-
-   @action fetchNotes(){
-       return axios.get('http://localhost:3004/notes').then(({data})=>{
-            this.notes = data;
-       })
-   }
-
 }
 
 const store = new NotesStore();

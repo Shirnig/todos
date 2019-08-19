@@ -75,57 +75,56 @@ class AddNote extends React.Component<any, AddNoteState> {
     }
 
     render(): JSX.Element {
-        return (
-                    <Modal show={this.props.showModal} onHide={this.handleClose}>
+        return (<Modal show={this.props.showModal} onHide={this.handleClose}>
 
-                        <Modal.Header className="header" closeButton>
-                            <Modal.Title className="title">
-                                <Form.Group className="title1" controlId="title" style={{margin:0}}>
-                                    <Form.Control className="title2" type="text" placeholder="Title" value={this.state.title}
-                                                  onChange={({target}:{target:any}) => this.onChange('title', target.value)} />
-                                </Form.Group>
+                    <Modal.Header className="header" closeButton>
+                        <Modal.Title className="title">
+                            <Form.Group controlId="title" style={{margin:0}}>
+                                <Form.Control type="text" placeholder="Title" value={this.state.title}
+                                              onChange={({target}:{target:any}) => this.onChange('title', target.value)} />
+                            </Form.Group>
 
-                            </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form>
-                                <Form.Row>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Row>
 
-                                    <Col xs="9" md="10" xl="10">
-                                        <Form.Group controlId="current-item">
-                                            <Form.Control type="text" placeholder="Note" value={this.state.current_item}
-                                                          onChange={({target}:{target:any}) => this.onChange('current_item', target.value)} />
-                                        </Form.Group>
-                                    </Col>
+                                <Col xs="9" md="10" xl="10">
+                                    <Form.Group controlId="current-item">
+                                        <Form.Control type="text" placeholder="Note" value={this.state.current_item}
+                                                      onChange={({target}:{target:any}) => this.onChange('current_item', target.value)} />
+                                    </Form.Group>
+                                </Col>
 
-                                    <Col>
-                                        <Button variant="success" onClick={()=>this.addItem()}>
-                                            Add
-                                        </Button>
-                                    </Col>
+                                <Col>
+                                    <Button variant="success" onClick={()=>this.addItem()}>
+                                        Add
+                                    </Button>
+                                </Col>
 
-                                </Form.Row>
-                            </Form>
+                            </Form.Row>
+                        </Form>
 
-                            <ListGroup>
-                                {this.state.items.map((li, idx)=>
-                                    <LiStyled key={idx} className="item" title="Remove Item" onClick={()=>this.removeItem(idx)}>{li}</LiStyled>)}
-                            </ListGroup>
+                        <ListGroup>
+                            {this.state.items.map((li, idx)=>
+                                <LiStyled key={idx} className="item" title="Remove Item" onClick={()=>this.removeItem(idx)}>{li}</LiStyled>)}
+                        </ListGroup>
 
-                            {this.state.error? <p style={{color:"red"}}>{this.state.error}</p>:null}
-                        </Modal.Body>
+                        {this.state.error? <p style={{color:"red"}}>{this.state.error}</p>:null}
+                    </Modal.Body>
 
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleClose}>
-                                Close
-                            </Button>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Close
+                        </Button>
 
-                            <Button variant="primary" onClick={()=>this.addNote()}>
-                                Save Changes
-                            </Button>
-                        </Modal.Footer>
+                        <Button variant="primary" onClick={()=>this.addNote()}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
 
-                    </Modal>
+                </Modal>
         );
     }
 
